@@ -1,8 +1,8 @@
 name: Build App With Pake CLI
 
 env:
-  NODE_VERSION: "22"
-  PNPM_VERSION: "10.26.2"
+  NODE_VERSION: "24"
+  BUN: "1.3"
 
 on:
   workflow_dispatch:
@@ -10,12 +10,12 @@ on:
       platform:
         description: "Platform"
         required: true
-        default: "macos-latest"
+        default: "ubuntu-latest"
         type: choice
         options:
           - "windows-latest"
           - "macos-latest"
-          - "ubuntu-24.04"
+          - "ubuntu-latest"
       url:
         description: "Website URL"
         required: true
@@ -51,7 +51,7 @@ on:
       targets:
         description: "Package formats (comma-separated: deb,appimage,rpm)"
         required: false
-        default: "deb"
+        default: "appimage"
 
 jobs:
   build:
